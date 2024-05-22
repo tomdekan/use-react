@@ -1,15 +1,15 @@
 -- The simplest way to use React with Django
 
-In the simplest way possible, we'll setup a React frontend (using Typescript) with a Django backend, using good practices as we go.
+In the simplest way possible, we'll set up a React frontend (using Typescript) with a Django backend, using good practices as we go.
 
 ## Q. Why would I use React? Couldn't I just use Django templates with HTMX?</summary>
-A. In many cases, the most efficient route is to use Django templates with HTMX [(Example guide here)], or Alpine js [Example guide here]. 
+A. Often, the most efficient route is to use Django templates with HTMX [(Example guide here: Build a Connect Four game with HTMX and Django in 8 minutes 🟡🔴](https://www.photondesigner.com/articles/connect4-htmx?ref=use-react){:target="_blank"}, or Alpine js [Example guide here: How to upload images with Django with Alpine.js (and save the links to your database) 🌤️](https://www.photondesigner.com/articles/upload-images-cloud-django?ref=use-react){:target="_blank"}. 
 
 To give you some concrete examples:
-- I could have built v2 of [Photon Designer] with Django and HTMX
-- I should have built [Amazing.photos] with Django HTMX.
+- I could have built v2 of [Photon Designer](https://app.photondesigner.com?ref=use-react){:target="_blank"} with Django and HTMX
+- I should have built [Amazing.photos](https://amazing.photos?ref=use-react) with Django HTMX.
 - I built RedstoneHR (which I later sold) largely with Django and HTMX 
-- A close friend's company is growing quickly, has over $1M ARR, and is profitable with a powerful product built using Django and HTMX. 
+- A close friend's company is growing quickly, has over $1M ARR, and is profitable. They have a powerful product built using Django and HTMX. 
 He also needs fewer developers because they are each so productive with Django and HTMX.
 
 In short, it is generally much faster to build with Django and HTMX because there is less complexity. 
@@ -22,13 +22,17 @@ If you're not sure, start with Django + HTMX.
 
 Anyway, let's start building!
 
+Here's what our final product will look like:
 
-## 1. Setup React
-We'll use Vite to setup our React frontend. Vite is a build tool provide a fast development experience for React (and other frontend frameworks).
+<video></video>
+
+
+## 1. Set up React
+We'll use Vite to set up our React frontend. Vite is a build tool provide a fast development experience for React (and other frontend frameworks).
 
 <details>
 <summary>Q. Why do I need Vite?</summary>
-A. Without Vite, you'll need to setup a lot of things manually. Vite provides a lot of things out of the box, like hot module replacement, fast builds, and more. There's negligible value to doing this yourself. 
+A. Without Vite, you'll need to set up a lot of things manually. Vite provides a lot of things out of the box, like hot module replacement, fast builds, and more. There's negligible value to doing this yourself. 
 So, I'd recommend using Vite
 </details>
 
@@ -145,10 +149,10 @@ export default App
 </html>
 ```
 
-Great - you've now setup a React frontend with Vite and Tailwind CSS!
+Great - you've now set up a React frontend with Vite and Tailwind CSS!
 Let's now send data from Django to React.
 
-## 2. Setup Django
+## 2. Set up Django
 We'll set up a simple Django backend to send data to our React frontend.
 
 
@@ -286,7 +290,7 @@ python manage.py runserver
 You should see something like this:
 ![JSON data of apple returned from Django REST API]()
 
-Great - you've now setup a Django backend with a simple API to send data to your React frontend.
+Great - you've now set up a Django backend with a simple API to send data to your React frontend.
 
 
 ## 3. Connect React and Django
@@ -360,14 +364,13 @@ npm run dev
 - Visit your React app at `http://localhost:5173/`. 
 
 
-
-
 ## 🎉Bonus: Style your React app using the powerful Framer Motion library
 For a bonus sheen, let's add some animations to our React app using the Framer Motion library.
 
 We'll make the apples in our gallery (from our data that Django sent) grow when hovered over, and shrink when clicked on, and then display a larger version of the apple in a modal.
 
 [Video of the final result]
+<video></video>
 
 ```bash
 npm install framer-motion
@@ -476,9 +479,6 @@ function App() {
 And that's it! You now have a working React frontend with a Django backend. The React app fetches data from the Django API and displays it.
 
 
-
-
-
 ### Some ideas for next steps - Deployment or Auth?
 - Add authentication to the Django API and React frontend
 - Add create, update, delete functionality to the Django API and connect it to the React frontend
@@ -488,10 +488,10 @@ I'd be happy to do a part 2 showing you:
 i. how to deploy both to production (it's very quick to do (10 mins) once you know how). 
 ii. how to add simple authentication to the Django API and React frontend (also very quick to do (10 mins) once you know how).
 
-Email me / Comment on Youtube if you'd like either 🙂
+Email me / Comment on my [Youtube](https://youtube.com/@tomdekan) if you'd like either 🙂
 
 ## Final repo for reference
-Here's all the code in [a repo](
+Here's all the code in [a repo]() if you'd like to use it.
 
 
 
