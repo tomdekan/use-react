@@ -364,6 +364,7 @@ npm run dev
 ## Congrats - You've set up a React frontend with Django! ✅
 And that's it! You now have a working React frontend with a Django backend. The React app fetches data from the Django API and displays it.
 
+
 ### Some ideas for next steps - Deployment or Auth?
 - Add authentication to the Django API and React frontend
 - Add create, update, delete functionality to the Django API and connect it to the React frontend
@@ -374,6 +375,10 @@ i. how to deploy both to production (it's very quick to do (10 mins) once you kn
 ii. how to add simple authentication to the Django API and React frontend (also very quick to do (10 mins) once you know how).
 
 Email me if you'd like either 🙂
+
+
+## Final repo for reference
+Here's all of the code in the in [a repo](
 
 
 
