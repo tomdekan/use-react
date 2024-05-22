@@ -374,11 +374,11 @@ I'd be happy to do a part 2 showing you:
 i. how to deploy both to production (it's very quick to do (10 mins) once you know how). 
 ii. how to add simple authentication to the Django API and React frontend (also very quick to do (10 mins) once you know how).
 
-Email me if you'd like either 🙂
-
+Email me / Comment on Youtube if you'd like either 🙂
 
 ## Final repo for reference
-Here's all of the code in the in [a repo](
+Here's all the code in [a repo](
+
 
 
 
