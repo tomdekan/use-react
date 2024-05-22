@@ -172,7 +172,7 @@ INSTALLED_APPS = [
 #### Add CORS settings
 - Add the following to the bottom of `core/settings.py`
 ```python
-CORS_ALLOWED_ORIGINS = ["http://localhost:5174"]  # Make sure the port number matches the one you're using for the React app.
+CORS_ALLOWED_ORIGINS = ["http://localhost:5173"]  # Make sure the port number matches the one you're using for the React app.
 ```
 
 #### Add middleware
