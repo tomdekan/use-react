@@ -361,8 +361,122 @@ npm run dev
 
 
 
+
+## 🎉Bonus: Style your React app using the powerful Framer Motion library
+For a bonus sheen, let's add some animations to our React app using the Framer Motion library.
+
+We'll make the apples in our gallery (from our data that Django sent) grow when hovered over, and shrink when clicked on, and then display a larger version of the apple in a modal.
+
+[Video of the final result]
+
+```bash
+npm install framer-motion
+```
+- Replace the contents of `react+django/src/App.tsx` with the below:
+```tsx
+import { useEffect, useState } from 'react'
+import axios from 'axios'
+import './App.css'
+import { motion, LayoutCamera } from 'framer-motion'
+
+function App() {
+    const [apples, setApples] = useState<Apple[]>([])
+    const [selectedApple, setSelectedApple] = useState<Apple | null>(null)
+
+    interface Apple {
+        name: string;
+        color: string;
+        photo_url: string;
+    }
+
+    useEffect(() => {
+        const applesListUrl = 'http://localhost:8000/apples/'
+        axios.get<Apple[]>(applesListUrl)
+            .then(response => setApples(response.data))
+    }, [])
+
+    const handleAppleClick = (apple: Apple) => {
+        setSelectedApple(apple)
+    }
+
+    const handleAppleClose = () => {
+        setSelectedApple(null)
+    }
+
+    return (
+        <LayoutCamera>
+            <motion.div
+                className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.5 }}
+            >
+                {apples.map((apple, index) => (
+                    <motion.div
+                        className="bg-white rounded-lg shadow-md overflow-hidden cursor-pointer"
+                        key={index}
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        onClick={() => handleAppleClick(apple)}
+                        layoutId={apple.name}
+                    >
+                        <motion.img
+                            src={apple.photo_url}
+                            alt={`${apple.name} apple`}
+                            className="w-full h-48 object-cover"
+                            initial={{ opacity: 0, y: 50 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: index * 0.1, duration: 0.5 }}
+                        />
+                        <div className="p-4">
+                            <h3 className="text-lg font-semibold text-gray-800 mb-2">{apple.name}</h3>
+                            <p className="text-gray-600">Color: {apple.color}</p>
+                        </div>
+                    </motion.div>
+                ))}
+            </motion.div>
+
+            {selectedApple && (
+                <motion.div
+                    className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    onClick={handleAppleClose}
+                >
+                    <motion.div
+                        className="bg-white rounded-lg shadow-md overflow-hidden max-w-md mx-auto"
+                        layoutId={selectedApple.name}
+                        initial={{ scale: 0 }}
+                        animate={{ scale: 1 }}
+                        exit={{ scale: 0 }}
+                        transition={{ duration: 0.3 }}
+                    >
+                        <motion.img
+                            src={selectedApple.photo_url}
+                            alt={`${selectedApple.name} apple`}
+                            className="w-full h-64 object-cover"
+                            initial={{ opacity: 0, scale: 0.5 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ duration: 0.5 }}
+                        />
+                        <div className="p-4">
+                            <h3 className="text-2xl font-semibold text-gray-800 mb-2">{selectedApple.name}</h3>
+                            <p className="text-gray-600">Color: {selectedApple.color}</p>
+                        </div>
+                    </motion.div>
+                </motion.div>
+            )}
+        </LayoutCamera>
+    )
+}
+```
+
 ## Congrats - You've set up a React frontend with Django! ✅
 And that's it! You now have a working React frontend with a Django backend. The React app fetches data from the Django API and displays it.
+
+
+
 
 
 ### Some ideas for next steps - Deployment or Auth?
